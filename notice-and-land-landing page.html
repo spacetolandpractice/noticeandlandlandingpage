@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notice & Land — A Weekly Nervous System Check-in for Mothers | Space to Land</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sage: #8A9E8C;
+      --clay: #C4836A;
+      --linen: #EDE8E0;
+      --mist: #D6DDD7;
+      --bark: #5C4A3A;
+      --white: #F8F5F0;
+      --sage-light: #b5c5b6;
+      --clay-light: #dca68f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--white);
+      color: var(--bark);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ── */
+    .display { font-family: 'Cormorant Garamond', serif; }
+    .italic  { font-style: italic; }
+    .clay    { color: var(--clay); }
+    .sage    { color: var(--sage); }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ── LOGO ── */
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-mark svg { flex-shrink: 0; }
+    .logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--bark);
+      line-height: 1.2;
+    }
+    .logo-wordmark em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    /* ── NAV ── */
+    nav {
+      padding: 24px 28px;
+      display: flex;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--linen);
+      overflow: hidden;
+      padding: 80px 28px 90px;
+      text-align: center;
+    }
+
+    /* Soft background rings — purely decorative */
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 520px; height: 520px;
+      border: 1px solid rgba(138,158,140,0.18);
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero::after {
+      width: 320px; height: 320px;
+      border: 1px solid rgba(196,131,106,0.15);
+      bottom: -80px; right: -60px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--bark);
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--bark);
+      opacity: 0.8;
+      max-width: 500px;
+      margin: 0 auto 44px;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--clay);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 17px 44px;
+      border-radius: 2px;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #b5705a;
+      transform: translateY(-1px);
+    }
+
+    .hero-price {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--bark);
+      opacity: 0.55;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--mist);
+    }
+    .divider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--clay);
+      opacity: 0.5;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 28px; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--bark);
+      margin-bottom: 24px;
+    }
+
+    section h2 em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    section p {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+    section p:last-of-type { margin-bottom: 0; }
+
+    /* ── WHAT IS THIS ── */
+    .what-is {
+      background: var(--white);
+      text-align: center;
+    }
+    .what-is .container { max-width: 640px; }
+    .what-is p { margin: 0 auto 18px; }
+
+    /* ── INCLUDED ── */
+    .included {
+      background: var(--linen);
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    @media (max-width: 540px) {
+      .included-grid { grid-template-columns: 1fr; }
+    }
+
+    .included-card {
+      background: var(--white);
+      padding: 36px 30px;
+      border-radius: 4px;
+      border-top: 2px solid var(--clay);
+    }
+
+    .included-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .included-card p {
+      font-size: 0.93rem;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    .included-card .card-icon {
+      width: 36px; height: 36px;
+      margin-bottom: 18px;
+      opacity: 0.7;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .for-you {
+      background: var(--white);
+    }
+
+    .for-you-list {
+      list-style: none;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .for-you-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--mist);
+      font-size: 1rem;
+      opacity: 0.85;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .for-you-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 28px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--clay);
+      opacity: 0.7;
+    }
+
+    .for-you-list li:last-child { border-bottom: none; }
+
+    /* ── WHY IT MATTERS ── */
+    .why {
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    .why .section-label { color: rgba(255,255,255,0.6); }
+    .why h2 { color: var(--white); }
+    .why h2 em { color: var(--linen); }
+    .why p { color: rgba(255,255,255,0.88); opacity: 1; }
+
+    .why-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 44px;
+    }
+
+    @media (max-width: 540px) {
+      .why-blocks { grid-template-columns: 1fr; }
+    }
+
+    .why-block h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: var(--linen);
+    }
+    .why-block p {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: var(--linen);
+      text-align: center;
+    }
+
+    .testimonial blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--bark);
+      max-width: 580px;
+      margin: 0 auto 28px;
+      position: relative;
+    }
+
+    .testimonial blockquote::before {
+      content: '\201C';
+      font-size: 5rem;
+      color: var(--clay);
+      opacity: 0.25;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial cite {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-style: normal;
+    }
+
+    .testimonial-placeholder-note {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--bark);
+      opacity: 0.35;
+      font-style: italic;
+    }
+
+    /* ── SECOND CTA ── */
+    .cta-section {
+      background: var(--bark);
+      text-align: center;
+      padding: 90px 28px;
+    }
+
+    .cta-section h2 {
+      color: var(--linen);
+      margin-bottom: 20px;
+    }
+    .cta-section h2 em { color: var(--clay-light); }
+
+    .cta-section p {
+      color: rgba(237,232,224,0.7);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      opacity: 1;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--clay-light);
+      color: var(--clay-light);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 17px 44px;
+      border-radius: 2px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .btn-outline:hover {
+      background: var(--clay-light);
+      color: var(--bark);
+    }
+
+    .cta-price {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: rgba(237,232,224,0.4);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+
+    .about-inner {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 12px;
+    }
+
+    .about-mark { flex-shrink: 0; padding-top: 6px; }
+
+    .about-text h2 { margin-bottom: 18px; }
+
+    @media (max-width: 540px) {
+      .about-inner { flex-direction: column; gap: 24px; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      padding: 48px 28px;
+      text-align: center;
+      border-top: 1px solid var(--mist);
+    }
+
+    footer .logo-mark { margin-bottom: 20px; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--bark);
+      text-decoration: none;
+      opacity: 0.55;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 0.9; }
+
+    .disclaimer {
+      font-size: 0.76rem;
+      color: var(--bark);
+      opacity: 0.38;
+      max-width: 500px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    footer .copyright {
+      font-size: 0.73rem;
+      color: var(--bark);
+      opacity: 0.3;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── INLINE CTA ── */
+    .inline-cta {
+      background: var(--white);
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .inline-cta-note {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--bark);
+      opacity: 0.45;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FADE-IN ANIMATIONS ── */
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 20px 20px; }
+      section { padding: 60px 20px; }
+      .hero { padding: 60px 20px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://spacetoland.com.au" class="logo-mark" aria-label="Space to Land">
+      <!-- Circle mark: sage stroke, clay fill dot -->
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="15" stroke="#8A9E8C" stroke-width="1.4" fill="none"/>
+        <circle cx="17" cy="17" r="5" fill="#C4836A"/>
+      </svg>
+      <span class="logo-wordmark">Space <em>to</em> Land</span>
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">A digital resource for mothers &nbsp;·&nbsp; Space to Land</p>
+      <h1>
+        You don't need to feel <em>better</em>.<br>
+        You need to feel <em>yourself</em>.
+      </h1>
+      <p class="hero-sub">
+        Notice &amp; Land is a gentle weekly nervous system check-in — created for mothers who are moving through early motherhood and have lost the thread back to themselves.
+      </p>
+      <a href="https://whop.com/spacetolandpractice/noticeandland/" class="btn-primary">Get the resource — $9.99</a>
+      <p class="hero-price">Instant digital download · PDF format</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS THIS -->
+  <section class="what-is fade-in">
+    <div class="container">
+      <span class="section-label">What is this?</span>
+      <h2>A place to pause.<br><em>One small check-in a week.</em></h2>
+      <p>
+        Notice &amp; Land is a printable PDF tracker that asks you to slow down for a few minutes each week and simply notice — what's happening in your body, your emotional landscape, your energy. Nothing to fix. Nothing to analyse.
+      </p>
+      <p>
+        It's grounded in nervous system awareness: the understanding that before we can shift how we feel, we need to know where we actually are. This resource gives you a gentle, structured way to do that — week by week, without pressure.
+      </p>
+      <p>
+        Think of it as a quiet ritual. Something that's just for you.
+      </p>
+    </div>
+  </section>
+
+  <div class="container"><div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div></div>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="included fade-in">
+    <div class="container">
+      <span class="section-label">What's included</span>
+      <h2>Simple. Printable.<br><em>Designed to be used.</em></h2>
+      <div class="included-grid">
+        <div class="included-card">
+          <!-- Tracker icon -->
+          <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="28" height="28" rx="2" stroke="#8A9E8C" stroke-width="1.4"/>
+            <line x1="10" y1="13" x2="26" y2="13" stroke="#C4836A" stroke-width="1.2"/>
+            <line x1="10" y1="18" x2="22" y2="18" stroke="#C4836A" stroke-width="1.2"/>
+            <line x1="10" y1="23" x2="20" y2="23" stroke="#C4836A" stroke-width="1.2"/>
+          </svg>
+          <h3>Weekly Nervous System Tracker</h3>
+          <p>A beautifully designed, printable PDF with weekly check-in prompts to help you notice and name your emotional and physical state. Covers body sensations, energy, emotional tone, and what you need.</p>
+        </div>
+        <div class="included-card">
+          <!-- Guide icon -->
+          <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="13" stroke="#8A9E8C" stroke-width="1.4"/>
+            <circle cx="18" cy="14" r="2.5" stroke="#C4836A" stroke-width="1.2"/>
+            <line x1="18" y1="19" x2="18" y2="25" stroke="#C4836A" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3>How-to Guide</h3>
+          <p>A short, warm guide that walks you through how to use the tracker — including a brief introduction to nervous system states, what the prompts mean, and how to approach the check-in without pressure or expectation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INLINE CTA 1 -->
+  <div class="inline-cta fade-in">
+    <div class="container">
+      <a href="https://whop.com/spacetolandpractice/noticeandland/" class="btn-primary">Get Notice &amp; Land — $9.99</a>
+      <p class="inline-cta-note">Instant digital download · PDF format</p>
+    </div>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <section class="for-you fade-in">
+    <div class="container">
+      <span class="section-label">Who it's for</span>
+      <h2>If this is <em>you</em>, you're in the right place.</h2>
+      <p>This resource was made for you if —</p>
+      <ul class="for-you-list">
+        <li>You're in the thick of early motherhood and can't remember the last time you asked yourself how you were actually feeling.</li>
+        <li>You carry an invisible emotional load that nobody else can quite see, and you've stopped expecting anyone to.</li>
+        <li>You know something feels off — but you're too exhausted to figure out what, or you don't have the space to sit with it.</li>
+        <li>You don't need another course, another habit, another thing to maintain. You need something small, honest, and gentle.</li>
+        <li>You want to feel more like yourself again — even if you're not quite sure who that is right now.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INLINE CTA 2 -->
+  <div class="inline-cta fade-in">
+    <div class="container">
+      <a href="https://whop.com/spacetolandpractice/noticeandland/" class="btn-primary">Get Notice &amp; Land — $9.99</a>
+      <p class="inline-cta-note">Instant digital download · PDF format</p>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div></div>
+
+  <!-- WHY IT MATTERS -->
+  <section class="why fade-in">
+    <div class="container">
+      <span class="section-label">Why this matters</span>
+      <h2>Your nervous system is<br><em>running the show.</em></h2>
+      <p>
+        When you're in survival mode — and early motherhood is survival mode — your body and brain are working hard to keep you upright. There's very little left over for reflection, for processing, for feeling.
+      </p>
+      <p>
+        The nervous system isn't just about stress. It shapes how safe you feel, how connected you feel, how available you are — to your baby, to yourself, to anything. And most of the time, in motherhood, nobody asks us to check in with it at all.
+      </p>
+      <div class="why-blocks">
+        <div class="why-block">
+          <h4>Noticing is not fixing.</h4>
+          <p>You don't have to change anything to use this tool. The act of naming where you are is enough. Awareness itself creates a kind of space — even a few millimetres of it.</p>
+        </div>
+        <div class="why-block">
+          <h4>The body holds information.</h4>
+          <p>Before emotions make it to words, they live in the body. Tension in your jaw. Heaviness in your chest. This tracker starts there — in sensation — and works gently upward.</p>
+        </div>
+        <div class="why-block">
+          <h4>Weekly is enough.</h4>
+          <p>This isn't a daily practice. It's a weekly pause. Five to ten minutes, once a week — enough to stay in touch with yourself without adding to your load.</p>
+        </div>
+        <div class="why-block">
+          <h4>It's just for you.</h4>
+          <p>No sharing required. No output. Nothing to show anyone. This exists in the quiet space between who you're being for everyone else and who you actually are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial fade-in">
+    <div class="container">
+      <span class="section-label">From a mother</span>
+      <blockquote>
+        I didn't realise how long I'd been on autopilot until I sat with this for the first time. Just naming it helped.
+      </blockquote>
+      <cite>— A mother, postnatal period</cite>
+
+    </div>
+  </section>
+
+  <!-- INLINE CTA 3 -->
+  <div class="inline-cta fade-in">
+    <div class="container">
+      <a href="https://whop.com/spacetolandpractice/noticeandland/" class="btn-primary">Get Notice &amp; Land — $9.99</a>
+      <p class="inline-cta-note">Instant digital download · PDF format</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about fade-in">
+    <div class="container">
+      <span class="section-label">Who made this</span>
+      <div class="about-inner">
+        <div class="about-mark">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" stroke="#8A9E8C" stroke-width="1.4" fill="none"/>
+            <circle cx="28" cy="28" r="8" fill="#C4836A" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="about-text">
+          <h2>Hi, I'm <em>Meg.</em></h2>
+          <p>I'm a qualified counsellor and the founder of Space to Land — a practice built specifically for mothers navigating the enormity of early motherhood and matrescence.</p>
+          <p>I created Notice &amp; Land because I kept seeing the same thing in my work with mothers: not a lack of resilience, not a failure to cope — but a complete disconnection from themselves. Women who had been so busy holding everything together that they'd stopped noticing what they were actually feeling. This resource is my attempt to give that back, gently and without pressure.</p>
+          <p>I know what it is to be in the thick of it. And I know that sometimes the most useful thing isn't advice — it's just a quiet place to land.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CTA -->
+  <section class="cta-section fade-in">
+    <div class="container">
+      <span class="section-label" style="color:rgba(214,221,215,0.55)">Notice &amp; Land</span>
+      <h2>Something quiet.<br>Something that's <em>just yours</em>.</h2>
+      <p>
+        A few minutes, once a week. A gentle check-in with your own nervous system. No expectations. No performance. Just a space to notice where you've landed.
+      </p>
+      <a href="https://whop.com/spacetolandpractice/noticeandland/" class="btn-outline">Get Notice &amp; Land — $9.99</a>
+      <p class="cta-price">Instant digital download · PDF format</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="https://spacetoland.com.au" class="logo-mark" style="justify-content:center;margin-bottom:22px;display:flex;">
+      <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="15" stroke="#8A9E8C" stroke-width="1.4" fill="none"/>
+        <circle cx="17" cy="17" r="5" fill="#C4836A"/>
+      </svg>
+      <span class="logo-wordmark">Space <em>to</em> Land</span>
+    </a>
+
+    <div class="footer-links">
+      <a href="https://spacetoland.com.au">spacetoland.com.au</a>
+      <a href="https://instagram.com/megmumtherapist">@megmumtherapist</a>
+      <a href="/cdn-cgi/l/email-protection#740704151711001b18151a1004061517001d1711341319151d185a171b19"><span class="__cf_email__" data-cfemail="e6959687858392898a87888296948785928f8583a6818b878f8ac885898b">[email&#160;protected]</span></a>
+    </div>
+
+    <p class="disclaimer">
+      This resource is for general wellbeing support and is not a substitute for professional mental health treatment. If you are experiencing significant distress, please reach out to a qualified mental health professional.
+    </p>
+
+    <p class="copyright">&copy; 2026 Space to Land. All rights reserved.</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Intersection observer for fade-in sections
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(ent
